@@ -1,0 +1,14 @@
+FROM httpd
+COPY ./usr/local/apache2/htdocs/
+sudo su
+cd Desktop
+ls
+docker build -t dockers .
+docker images
+docker run -itd -p 80:80 –name dockers dockers
+docker ps
+docker login
+docker tag dockers 1ms21cs407/dockers:latest
+docker login
+docker images
+docker push 1ms21cs407/dockers:latest
